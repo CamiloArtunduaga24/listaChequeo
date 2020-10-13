@@ -1,0 +1,104 @@
+<h1>Agregar <small>Items</small> </h1>
+<hr>
+<div class="row text-right">
+    <div class="col">
+        <button routerLink="/listas"
+                class="btn btn-danger">
+            <i class="fa fa-arrow-left"> Regresar</i>
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+
+        <form (ngSubmit)="guardar( f )"
+                #f="ngForm">
+
+            <div class="form-group">
+                <label>Firebase ID</label>
+                <input type="text"
+                        class="form-control" 
+                        placeholder="Firebase ID"
+                        [(ngModel)]="lista.id"
+                        name="id"
+                        disabled="disabled">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+
+            <div class="form-group">
+                <label>Numeral</label>
+                <input type="number"
+                        class="form-control" 
+                        placeholder="Numeral"
+                        [(ngModel)]="lista.numeral"
+                        name="numeral"
+                        required>
+            </div>
+
+            <div class="form-group">
+                <label>Requisitos</label>
+                <input type="text"
+                        class="form-control" 
+                        placeholder="Requisitos"
+                        [(ngModel)]="lista.requisitos"
+                        name="requisitos"
+                        required>
+            </div>
+            <div class="form-group">
+                <label>Documento</label>
+                <input type="text"
+                        class="form-control" 
+                        placeholder="Documento"
+                        [(ngModel)]="lista.documento"
+                        name="documento"
+                        required>
+            </div>
+            <div class="form-group">
+                <label>Valor de porcentaje</label>
+                <input type="text"
+                        class="form-control" 
+                        [(ngModel)]="lista.porcentaje"
+                        name="porcentaje"
+                        placeholder="Valor de porcentaje">
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <label>Cumple</label>
+                <br>
+                <button *ngIf="lista.cumple"
+                         (click)  = "lista.cumple = false"
+                         class="btn btn-outline-success w-25" type="button">
+                    <i class="fa fa-smile-wink">
+                        Si
+                    </i>
+                </button>
+
+                <button *ngIf="!lista.cumple"
+                         (click)  = "lista.cumple = true"
+                        class="btn btn-outline-danger w-25" type="button">
+                    <i class="fa fa-frown">
+                        No
+                    </i>
+                </button>
+
+            </div>
+
+
+           
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit"
+                        class="btn btn-primary w-25">
+                        <i class="fa fa-save">
+                            Guardar
+                        </i>
+                </button>
+
+            </div>
+
+        </form>
+    </div>
+</div>
